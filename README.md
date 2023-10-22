@@ -118,6 +118,89 @@
 - An IAM user for CodeArtifact was created with a AWSCodeArtifactAdminAccess. Programmatic access was also given to the user to enable use of aws cli. the credentials was downloaded.
 
 ```
-  $ sudo aws configure # The iam credeentials was provided in the prompt
-  
+  $ sudo aws configure # The IAM credentials was provided in the prompt
+
+```
+- By Navigating to Developer Tools > CodeArtifact > Domains > vprofile-codertifact-domain > maven-central-store
+- "View connection instructions" was selected, linux was selected as the operating system, and mvn was selected as the package manager client.
+- The following was copied and pasted on the terminal of the development machine
+
+```
+  $ export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain vprofile-codertifact-domain --domain-owner 337070252184 --region us-east-1 --query authorizationToken --output text`
+
+```
+<p>It should be noted that the generated token expires after 12 hours from generation. An attempt to run a CodePipeline would generate a 401 Unauthorized error !!! should this occur, a new token must be generated and pasted in the development machine.</p>
+
+- The following configuration settings were compared to the [settings.xml](https://github.com/ogunleye0720/AWS-continuous-integration/blob/master/settings.xml) file, and updated with some of the configuration data from the connection instructions page. below is the configuration data from the connection instructions page:
+
+```
+  <servers>
+  <server>
+    <id>vprofile-codertifact-domain-maven-central-store</id>
+    <username>aws</username>
+    <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+  </server>
+</servers>
+<profiles>
+  <profile>
+    <id>vprofile-codertifact-domain-maven-central-store</id>
+    <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>
+    <repositories>
+      <repository>
+        <id>vprofile-codertifact-domain-maven-central-store</id>
+        <url>https://vprofile-codertifact-domain-337070252184.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+      </repository>
+    </repositories>
+  </profile>
+</profiles>
+<mirrors>
+  <mirror>
+    <id>vprofile-codertifact-domain-maven-central-store</id>
+    <name>vprofile-codertifact-domain-maven-central-store</name>
+    <url>https://vprofile-codertifact-domain-337070252184.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+    <mirrorOf>*</mirrorOf>
+  </mirror>
+</mirrors>
+
+```
+- Below is the updated [settings.xml](https://github.com/ogunleye0720/AWS-continuous-integration/blob/master/settings.xml) file content:
+
+```
+  <?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+        <server>
+            <id>vprofile-codertifact-domain-vprofile-code-artifact</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+        </server>
+    </servers>
+<profiles>
+  <profile>
+    <id>vprofile-codertifact-domain-vprofile-code-artifact</id>
+    <repositories>
+      <repository>
+        <id>vprofile-codertifact-domain-vprofile-code-artifact</id>
+        <url>https://vprofile-codertifact-domain-337070252184.d.codeartifact.us-east-1.amazonaws.com/maven/vprofile-code-artifact/</url>
+      </repository>
+    </repositories>
+  </profile>
+</profiles>
+<activeProfiles>
+        <activeProfile>default</activeProfile>
+</activeProfiles>
+<mirrors>
+  <mirror>
+    <id>vprofile-codertifact-domain-vprofile-code-artifact</id>
+    <name>vprofile-codertifact-domain-vprofile-code-artifact</name>
+    <url>https://vprofile-codertifact-domain-337070252184.d.codeartifact.us-east-1.amazonaws.com/maven/vprofile-code-artifact/</url>
+    <mirrorOf>*</mirrorOf>
+  </mirror>
+</mirrors>
+</settings>
+
 ```
