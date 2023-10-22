@@ -29,28 +29,18 @@
   
 - To facilitate the integration of various tools and services used in the development and deployment process, such as version control systems, testing frameworks, and cloud platforms.
 
-
-#
-- JDK 1.8 or later
-- Maven 3 or later
-- MySQL 5.6 or later
-
 # Technologies 
 - Spring MVC
 - Spring Security
 - Spring Data JPA
-- Maven
+- Maven 3 or later
 - JSP
-- MySQL
-# Database
-Here,we used Mysql DB 
-MSQL DB Installation Steps for Linux ubuntu 14.04:
-- $ sudo apt-get update
-- $ sudo apt-get install mysql-server
-
-Then look for the file :
-- /src/main/resources/accountsdb
-- accountsdb.sql file is a mysql dump file.we have to import this dump to mysql db server
-- > mysql -u <user_name> -p accounts < accountsdb.sql
-
-
+- JDK 8 (correto8) and JDK 11
+- MySQL version 5.6 or later
+- AWS CodePipeline
+- AWS CodeCommit
+- AWS CodeBuild
+- Sonar Cloud
+- SNS
+- S3 Bucket
+  
