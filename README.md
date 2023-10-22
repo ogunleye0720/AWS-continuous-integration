@@ -35,7 +35,7 @@
 - Spring MVC
 - Spring Security
 - Spring Data JPA
-- Maven 3 or later
+- Maven 3 or later version
 - JSP
 - JDK 8 (correto8) and JDK 11
 - MySQL version 5.6 or later
@@ -60,4 +60,9 @@
 
 - [x] Amazon SNS :- Amazon Simple Notification Service (Amazon SNS) is a fully managed messaging service provided by Amazon Web Services (AWS). It allows send messages and notifications to be sent to a large number of recipients through various communication channels, such as email, SMS (Short Message Service), application endpoints (e.g., mobile devices), and even HTTP endpoints. In this project, the SNS was used to send information about the build and test stages success, failure, code changes, and process termination, to an administrative email.
 
-- [x] Sonar Cloud :- SonarCloud is a cloud-based, software quality and security platform provided by SonarSource. It's designed to help development teams ensure the quality, maintainability, and security of their code throughout the software development lifecycle. SonarCloud is a part of the larger SonarQube ecosystem but is hosted and maintained by SonarSource, making it a convenient choice for teams looking for a cloud-based solution. In this project, SonarQube was used to perform code analysis test on the project source code.
+- [x] SonarCloud :- SonarCloud is a cloud-based, software quality and security platform provided by SonarSource. It's designed to help development teams ensure the quality, maintainability, and security of their code throughout the software development lifecycle. SonarCloud is a part of the larger SonarQube ecosystem but is hosted and maintained by SonarSource, making it a convenient choice for teams looking for a cloud-based solution. In this project, SonarQube was used to perform code analysis test on the project source code.
+
+# FLOW OF EXECUTION (PROJECT IMPLEMENTATION)
+<p>The endeavour at hand can be comprehensively broken down into a seriies of orchestrated stages. These sequential steps form the backbone of the project's execution, thus ensuring a structured and systematic approach towards a successful implemenmtation. without wasting time, i shall briefly explain each stage of the projec's execution: </p>
+
+1. ### AWS CodeCommit
