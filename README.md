@@ -437,3 +437,22 @@
   $ git push origin master
 
 ```
+3. ### SonarCloud Configuration
+- open [sonarcloud.io](https://sonarcloud.io)
+- An account was created
+- From the account avatar icon on the top right corner of the navbar > click on the avatar > select My Account > on the account page, select Security on the navbar.
+```
+  Generate Tokens: Enter Token Name
+
+```
+- Click on the Generate Token button as shown in the image below
+
+![SonarCloud Token Generation](images/sonarcloud-generate-token.JPG)
+
+- On the SonarCloud main navbar, click on My Projects, create a new project > Select Analyze Project > create project manually. The Below details will be used in the CodeBuild stage.
+
+```
+  Organization: The displayed details
+  Project Key: The displayed project key
+  
+```
