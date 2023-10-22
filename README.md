@@ -12,12 +12,20 @@
 <P> The aim of this project is to utilise a cloud native solution towards improving software quality by automating test and validation processes.</P>
 ### OBJECTIVES
 <p>The objectives of this project are: </p>
+
+#
+
 - To implement automated build and compilation processes, ensuring that code is built correctly and consistently.
+
 - To automate the testing process, in order to validate code changes, including unit tests, integration tests, and end-to-end tests.
+
 - To implement automated monitoring and alerts to detect and respond to issues quickly.
+
 - To reduce manual intervention and errors in the software delivery process, making it more efficient and reliable.
 - To incorporate security checks and testing into the CI/CD pipeline to identify and address security vulnerabilities early.
+
 - To use AWS CodePipeline to optimize costs by minimizing the use of resources when not required.
+  
 - To facilitate the integration of various tools and services used in the development and deployment process, such as version control systems, testing frameworks, and cloud platforms.
 
 
