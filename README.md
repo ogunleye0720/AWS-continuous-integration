@@ -457,18 +457,10 @@
 
 ```
 4. ### System Manager Configuration
-- System manager was searched from the AWS management console serach bar. 
+- System manager was searched from the AWS management console search bar. 
 - From system manager > Parameter store > Create parameter
 - The following details were entered for the various parameters to be used:
 
-```
-  Name: Organization
-  Tier: standard
-  Type string
-  Data type: text
-  value: name of the organization on SonarCloud
-
-```
 ```
   Name: Organization
   Tier: standard
@@ -502,7 +494,7 @@
 ```
 
 ```
-  Name: Project
+  Name: sonartoken
   Tier: standard
   Type SecureString
   value: SonarCloud Generated Token
