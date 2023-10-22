@@ -10,6 +10,7 @@
 ## AIM AND OBJECTIVES
 ### AIM
 <P> The aim of this project is to utilise a cloud native solution towards improving software quality by automating test and validation processes.</P>
+
 ### OBJECTIVES
 <p>The objectives of this project are: </p>
 
