@@ -445,7 +445,7 @@
   Generate Tokens: Enter Token Name
 
 ```
-- Click on the Generate Token button as shown in the image below
+- Click on the Generate Token button as shown in the image below: The Generated Token was stored in a safe file for later use.
 
 ![SonarCloud Token Generation](images/sonarcloud-generate-token.JPG)
 
@@ -454,5 +454,59 @@
 ```
   Organization: The displayed details
   Project Key: The displayed project key
-  
+
 ```
+4. ### System Manager Configuration
+- System manager was searched from the AWS management console serach bar. 
+- From system manager > Parameter store > Create parameter
+- The following details were entered for the various parameters to be used:
+
+```
+  Name: Organization
+  Tier: standard
+  Type string
+  Data type: text
+  value: name of the organization on SonarCloud
+
+```
+```
+  Name: Organization
+  Tier: standard
+  Type string
+  Data type: text
+  value: name of the organization on SonarCloud
+
+```
+```
+  Name: HOST
+  Tier: standard
+  Type string
+  Data type: text
+  value: SonarCloud URL https://sonarcloud.io
+
+```
+```
+  Name: codeartifact-token
+  Tier: standard
+  Type SecureString
+  value: value of the generated token  from development machine $ sudo echo $CODEARTIFACT_AUTH_TOKEN
+
+```
+```
+  Name: Project
+  Tier: standard
+  Type string
+  Data type: text
+  value: SonarCloud project name
+
+```
+
+```
+  Name: Project
+  Tier: standard
+  Type SecureString
+  value: SonarCloud Generated Token
+
+```
+
+5. ### AWS CodeBuild for SonarQube Code Analysis
