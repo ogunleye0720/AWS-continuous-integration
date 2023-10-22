@@ -43,7 +43,7 @@
 - AWS CodeCommit
 - AWS CodeBuild
 - Sonar Cloud
-- SNS
+- AMAZON SNS
 - S3 Bucket
 
 # ARCHITECTURE OVERVIEW
@@ -56,4 +56,8 @@
 
 - [x] AWS CodePipeline :- AWS CodePipeline is a continuous integration and continuous delivery (CI/CD) service, provided by Amazon Web Services (AWS). It automates the build, test, and deployment phases of a software release process, enabling the delivery of software and updates more rapidly and reliably. AWS CodePipeline helps to streamline software delivery pipeline, from code changes to production deployments.
 
-- [x] Amazon S3 :- 
+- [x] Amazon S3 :- Amazon S3 (Amazon Simple Storage Service) is an object storage service provided by Amazon Web Services (AWS). It is designed to store and retrieve any amount of data, from anywhere on the web. In this project, the Amazon S3 was used to store the Software dependencies, and artifacts after a successful build process. This dependencies stored in the S3 bucket, would later be referenced during the deploy stage of the pipeline to generate an artifact.
+
+- [x] Amazon SNS :- Amazon Simple Notification Service (Amazon SNS) is a fully managed messaging service provided by Amazon Web Services (AWS). It allows send messages and notifications to be sent to a large number of recipients through various communication channels, such as email, SMS (Short Message Service), application endpoints (e.g., mobile devices), and even HTTP endpoints. In this project, the SNS was used to send information about the build and test stages success, failure, code changes, and process termination, to an administrative email.
+
+- [x] Sonar Cloud :- SonarCloud is a cloud-based, software quality and security platform provided by SonarSource. It's designed to help development teams ensure the quality, maintainability, and security of their code throughout the software development lifecycle. SonarCloud is a part of the larger SonarQube ecosystem but is hosted and maintained by SonarSource, making it a convenient choice for teams looking for a cloud-based solution. In this project, SonarQube was used to perform code analysis test on the project source code.
