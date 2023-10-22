@@ -92,3 +92,13 @@
 ```
 
 - From the project root directory, the following command were executed to initialize, commit, and push the project to the CodeCommit repository "vprofile-code-repo"
+
+```
+  $ git add .
+  $ git commit -m "First commit"
+  $ git branch -M master
+  $ git remote add origin ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/vprofile-code-repo
+  $ git push origin master
+
+```
+![Code pushed to the repository](images/codecommit-repository.JPG)
