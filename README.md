@@ -105,6 +105,7 @@
 
 2. ### AWS CodeArtifact
 <p> This is the second stage of the continuous integration process, and the steps taken to create an AWS CodeArtifact repository for Maven are: </p>
+
 - A CodeArtifact repository for Maven was created with the following configuration details:
 
 ```
@@ -112,5 +113,11 @@
    Public Upstream Repo: maven-central-store
    AWS account: This AWS account
    Domain name: vprofile-codertifact-domain
-   
+
+```
+- An IAM user for CodeArtifact was created with a AWSCodeArtifactAdminAccess. Programmatic access was also given to the user to enable use of aws cli. the credentials was downloaded.
+
+```
+  $ sudo aws configure # The iam credeentials was provided in the prompt
+  
 ```
