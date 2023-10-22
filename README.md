@@ -73,18 +73,18 @@
 - After the repository was created, an IAM user with CodeCommit Full access was created. This would grant the IAM user full access to every repository in CodeCommit. Although a custom policy can be created to grant the IAM user access to the "vprofile-code-repo" repository only. This is recommended if there are more than one person working on a pipeline.
 - For this project, the SSH connection method was the preferred option. This method was chosen because only a single team member was working on the project. For a team project, the HTTPS connection method is suitable. An SSH key was generated from a Linux development machine, and then the public key (id_rsa.pub) exchanged with the IAM user.
 
-    '''
-        $ sudo ssh-keygen
-        $ sudo cat ~/.ssh/id_rsa.pub
-    '''
+'''
+    $ sudo ssh-keygen
+    $ sudo cat ~/.ssh/id_rsa.pub
+'''
 - The configuration under ~/.ssh/config was updated with the host information, and the permission was changed to 600
-    '''
-        HOST git-codecommit.us-east-1.amazonaws.com
-          User <SSH_Key_ID_From_IAM_user> 
-          IdentityFile ~/.ssh/id_rsa
-    '''
+'''
+    HOST git-codecommit.us-east-1.amazonaws.com
+        User <SSH_Key_ID_From_IAM_user> 
+        IdentityFile ~/.ssh/id_rsa
+'''
 - The SSH connection was tested to CodeCommit.
-    '''
-        $ sudo ssh git-codecommit.us-east-1.amazonaws.com
-    '''
+'''
+    $ sudo ssh git-codecommit.us-east-1.amazonaws.com
+'''
 - From the project root directory, the following command were executed to initialize, commit, and push the project to the CodeCommit repository "vprofile-code-repo"
