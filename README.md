@@ -1,5 +1,8 @@
 # CONTINUOUS INTEGRATION PROJECT USING AWS CODEPIPELINE
 
+#
+![DEVOPS LOOP](Images/on-premise-architecture-diagram.JPG)
+
 ## INTRODUCTION
 <p> Continuous Integration (CI) is a cornerstone practice in Agile development methodologies, revolutionizing the way software is built, tested, and delivered. In an era where software development cycles are increasingly demanding speed, flexibility, and quality, CI stands as a critical enabler of Agile principles. It's a powerful approach that promotes collaboration, ensures code stability, and accelerates the release of high-quality software.</p> 
 
