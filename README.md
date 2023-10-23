@@ -521,7 +521,6 @@
   CloudWatch Logs: vprofile-nvirginia-buildlogs
   Stream name: sonarbuildjob
 
-
 ```
 ![output configuration](images/sonarbuildConfiguration.png)
 
@@ -566,3 +565,41 @@ in Read:
 ![sonar-analysis](images/sonarresult.png)
 
 ### 6. AWS CodeBuild for Build Artifact
+- From AWS mannagement console > Search For CodeBuild > Create Build Project
+- The Follwing data were filled in the Create Build Project page for Build Artifact:
+```
+  Project name: vprofile-Artifact-codeBuild
+  Description: vprofile-Artifact-codeBuild
+  Source provider: AWS CodeCommit
+  Repository: vprofile-code-repo
+  Branch: master
+  Environment image: Managed image
+  Operating system: Ubuntu
+  Runtime: standard
+  image: aws/codebuild/standard:5.0
+  Service role: New service role
+  Role name: codebuild12-vprofile-Build-Artifact-service-role
+  Buildspec: Insert build commands <!-- copy and paste the content from build_buildspec.yml file --> 
+  CloudWatch Logs: vprofile-nvirginia-buildlogs
+  Stream name: buildjob
+
+```
+- From the IAM console > Role > codebuild12-vprofile-Build-Artifact-service-role
+- A Policy was attached to the role. This policy grants System Manager permission to  the role. This would allow the role make use of the parameters in the parameter store.
+- The permissions attached are:
+
+```
+in List:
+  DescribeParameters
+
+in Read:
+  GetParameter
+  GetParameters
+  GetParameterHistory
+  GetParameterByPath
+  DescribeDocumentParameters
+
+```
+- The outcome of the build project:
+
+![code-artifact-build-success](images/codeArtifactBuild-successful.JPG)
