@@ -621,7 +621,74 @@ in Read:
   Deploy provider: Amazon S3
 
 ```
-- Then the Deploy stage was skipped
-- The pipeline without the deploy stage:
+- Then the Deploy stage was skipped, and the execution was stopped by clicking the stop execution button.
+- The pipeline without the deploy stage after skipping deploy stage, and stopping execution:
 ![pipeline without the deploy stage](images/pipeline-after-skipping-deploy-stage.png)
+
+- The pipeline was edited by clicking the Edit button
+- On the edit pipeline page, another stage was added just after the CodeCommit stage.
+
+```
+  stage name: Test
+  click Add stage
+  on the Test stage secion, click Add action group
+  Action name: sonar-code-analysis
+  Action provider: AWS CodeBuild
+  Input artifacts: SourceArtifact
+  Project name: vprofile-sonarbuild
+  Build type: Single build
+  Output Artifact: BuildArtifactSonar
+  
+```
+- On the edit pipeline page, another stage was added just after the Build stage, This was the last stage.
+- In this stage, the artifact was built and deployed to Amazon S3 bucket
+
+```
+  stage name: deploy
+  click Add stage
+  on the Test stage secion, click Add action group
+  Action name: deploy-to-s3
+  Action provider: Amazon s3
+  Input artifacts: BuildArtifact
+  Bucket: codepipeline-us-east-1-844910341280
+  S3 object key: buildArtifact
+  Deployment path: vprofile-build-artfifact
+
+```
+- From aws management console > search SNS > Create topic 
+```
+  Name: vprofile-build-artifact
+
+```
+- from Amazon SNS > Subscription 
+```
+  Topic: arn:aws:sns:us-east-1:337070252184:vprofile-build-artifact
+  Protocol: Email
+  End point: email address
+
+```
+- The subscription was sent to the email for confirmation
+
+- On the left navbar, under pipeline, settings was selected > Notifications > Create notification rule
+
+```
+  Notification name: vprofile-code-pipelineexecution-notification
+  Detail type: Full
+  Events that trigger notification: Select all
+  Choose target type: SNS
+  Choose target: arn:aws:sns:us-east-1:337070252184:vprofile-build-artifact    # This was the topic created
+
+```
+- The bucket policy of the bucket used to store Artifact was updated
+- Amazon S3 > Buckets > codepipeline-us-east-1-844910341280 > Edit Bucket Policy
+- The s3:PutObject action Effect was changed from "Deny" to "Allow"
+- This enabled the Pipeline role to send files into the bucket
+- The Bucket was also made publicly accessible, but Block public and cross-account access to buckets and objects through any public bucket or access point policies was enabled.
+
+- The pipeline was activated by clicking the "Release change" Button
+
+- The outcome of the activated pipeline:
+![pipeline successful ](images/codepipeline-successful.JPG)
+
+![Artifact successfuly deployed to S3 ](images/succesful-deploy-of-artifact-to-s3.JPG)
 
