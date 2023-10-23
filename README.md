@@ -561,6 +561,8 @@ in Read:
 ![sonar-build-success](images/sonar-build-success.JPG)
 ![sonar build success](images/sonarBuildSuccess.JPG)
 
-- Result of the code analysis performed using SonarQube
+- Result of the code analysis performed using SonarQube after setting Quality gate to fail the job if the number of Bugs detected > 40
 
 ![sonar-analysis](images/sonarresult.png)
+
+### 6. AWS CodeBuild for Build Artifact
