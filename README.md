@@ -502,3 +502,22 @@
 ```
 
 5. ### AWS CodeBuild for SonarQube Code Analysis
+- From AWS mannagement console > Search For CodeBuild > Create Build Project
+- The Follwing data were filled in the Create Build Project page for Sonarbuild:
+
+```
+  Project name: vprofile-sonarbuild
+  Description: Build Job for sonar analysis
+  Source provider: AWS CodeCommit
+  Repository: vprofile-code-repo
+  Branch: master
+  Environment image: Managed image
+  Operating system: Ubuntu
+  Runtime: standard
+  image: aws/codebuild/standard:5.0
+  Service role: New service role
+  Role name: codebuild12-vprofile-Build-service-role
+  Buildspec: Insert build commands
+
+```
+![output configuration](images/sonarbuildConfiguration.png)
