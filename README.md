@@ -593,8 +593,8 @@ in List:
   DescribeParameters
 
 in Read:
-  GetParameter
-  GetParameters
+  GetParameter  -[x]
+  GetParameters -[x]
   GetParameterHistory
   GetParameterByPath
   DescribeDocumentParameters
