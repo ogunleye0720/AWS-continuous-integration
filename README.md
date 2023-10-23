@@ -692,3 +692,4 @@ in Read:
 
 ![Artifact successfuly deployed to S3 ](images/succesful-deploy-of-artifact-to-s3.JPG)
 
+# CHALLENGES AND SOLUTION
