@@ -537,7 +537,7 @@
     CODEARTIFACT_AUTH_TOKEN: codeartifact-token
 
 ```
-![parameter-store](images/parameter-store.png)
+![parameter-store](images/parameter-store.JPG)
 
 - From the IAM console > Role > codebuild12-vprofile-Build-service-role
 - A Policy was attached to the role. This policy grants System Manager permission to  the role. This would allow the role make use of the parameters in the parameter store.
