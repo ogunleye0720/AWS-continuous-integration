@@ -517,7 +517,46 @@
   image: aws/codebuild/standard:5.0
   Service role: New service role
   Role name: codebuild12-vprofile-Build-service-role
-  Buildspec: Insert build commands
+  Buildspec: Insert build commands <!-- copy and paste the content from --> [sonar_buildspec.yml](https://github.com/ogunleye0720/AWS-continuous-integration/blob/master/aws-files/sonar_buildspec.yml)
+  CloudWatch Logs: vprofile-nvirginia-buildlogs
+  Stream name: sonarbuildjob
+
 
 ```
 ![output configuration](images/sonarbuildConfiguration.png)
+
+- The sonar_buildspec.yml file was updated with the parameters from the system manager parameter store
+
+```
+  env:
+  parameter-store:
+    LOGIN: sonartoken
+    HOST: HOST
+    Organization: Organization
+    Project: project
+    CODEARTIFACT_AUTH_TOKEN: codeartifact-token
+
+```
+![parameter-store](images/parameter-store.png)
+
+- From the IAM console > Role > codebuild12-vprofile-Build-service-role
+- A Policy was attached to the role. This policy grants System Manager permission to  the role. This would allow the role make use of the parameters in the parameter store.
+- The permissions attached are:
+
+```
+in List:
+  DescribeParameters
+
+in Read:
+  GetParameter
+  GetParameters
+  GetParameterHistory
+  GetParameterByPath
+  DescribeDocumentParameters
+
+```
+- Back to the Build Project, the Start Build button was clicked for the vprofile-sonarbuild project.
+- The outcome of the build project:
+
+![sonar-build-success](images/sonar-build-success.JPG)
+![parameter-store](images/sonarBuildSuccess.JPG)
