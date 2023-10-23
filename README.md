@@ -65,7 +65,7 @@
 # FLOW OF EXECUTION (PROJECT IMPLEMENTATION)
 <p>The endeavour at hand can be comprehensively broken down into a seriies of orchestrated stages. These sequential steps form the backbone of the project's execution, thus ensuring a structured and systematic approach towards a successful implemenmtation. without wasting time, i shall briefly explain each stage of the projec's execution: </p>
 
-1. ### AWS CodeCommit
+### 1. AWS CodeCommit
 <p> This is the first stage of the continuous integration process, and the steps taken to create an AWS CodeCommit repository are:</p>
 
 - From the AWS management console, the region "US-east-1" was selected. Then, CodeCommit was enetered into the searchbar on the management console.
@@ -103,7 +103,7 @@
 ```
 ![Code pushed to the repository](images/codecommit-repository.JPG)
 
-2. ### AWS CodeArtifact
+### 2. AWS CodeArtifact
 <p> This is the second stage of the continuous integration process, and the steps taken to create an AWS CodeArtifact repository for Maven are: </p>
 
 - A CodeArtifact repository for Maven was created with the following configuration details:
@@ -437,7 +437,7 @@
   $ git push origin master
 
 ```
-3. ### SonarCloud Configuration
+### 3. SonarCloud Configuration
 - open [sonarcloud.io](https://sonarcloud.io)
 - An account was created
 - From the account avatar icon on the top right corner of the navbar > click on the avatar > select My Account > on the account page, select Security on the navbar.
@@ -456,7 +456,7 @@
   Project Key: The displayed project key
 
 ```
-4. ### System Manager Configuration
+### 4. System Manager Configuration
 - System manager was searched from the AWS management console search bar. 
 - From system manager > Parameter store > Create parameter
 - The following details were entered for the various parameters to be used:
@@ -501,7 +501,7 @@
 
 ```
 
-5. ### AWS CodeBuild for SonarQube Code Analysis
+### 5. AWS CodeBuild for SonarQube Code Analysis
 - From AWS mannagement console > Search For CodeBuild > Create Build Project
 - The Follwing data were filled in the Create Build Project page for Sonarbuild:
 
