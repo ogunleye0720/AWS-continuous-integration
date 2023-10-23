@@ -593,8 +593,8 @@ in List:
   DescribeParameters
 
 in Read:
-  GetParameter  -[x]
-  GetParameters -[x]
+  GetParameter  
+  GetParameters 
   GetParameterHistory
   GetParameterByPath
   DescribeDocumentParameters
@@ -603,3 +603,25 @@ in Read:
 - The outcome of the build project:
 
 ![code-artifact-build-success](images/codeArtifactBuild-successful.JPG)
+
+### 7. AWS CodePipeline and SNS Notification
+- From AWS mannagement console > Search For CodePipeline > Pipelines > Create Pipeline
+
+```
+  Pipeline name: vprofile-code-pipeline
+  Service role: New service role
+  Role name: AWSCodePipelineServiceRole-us-east-1-vprofile-code-pipeline
+  Source provider: AWS CodeCommit
+  Repository: vprofile-code-repo
+  Branch: master
+  Change detection options: Cloudwatch events
+  Build provider: AWS CodeBuild
+  Project name: vprofile-Artifact-codeBuild
+  Build type: Single build
+  Deploy provider: Amazon S3
+
+```
+- Then the Deploy stage was skipped
+- The pipeline without the deploy stage:
+![pipeline without the deploy stage](images/pipeline-after-skipping-deploy-stage.png)
+
