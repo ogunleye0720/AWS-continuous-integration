@@ -1,6 +1,6 @@
 # CONTINUOUS INTEGRATION PROJECT USING AWS CODEPIPELINE
 
-![DEVOPS LOOP](images/Continuous_Integration.webp)
+![DEVOPS LOOP](images/Continuous_Integration.webp
 
 ## INTRODUCTION
 <p> Continuous Integration (CI) is a cornerstone practice in Agile development methodologies, revolutionizing the way software is built, tested, and delivered. In an era where software development cycles are increasingly demanding speed, flexibility, and quality, CI stands as a critical enabler of Agile principles. It's a powerful approach that promotes collaboration, ensures code stability, and accelerates the release of high-quality software.</p> 
@@ -47,6 +47,10 @@
 - S3 Bucket
 
 # ARCHITECTURE OVERVIEW
+
+## ARCHITECTURAL-DIAGRAM
+
+![ARCHITECTURAL-DIAGRAM](images/aws-continuous-integration-architectural-2.JPG)
 
 - [x] AWS CodeCommit :- AWS CodeCommit is a fully managed source control service provided by Amazon Web Services (AWS). It is a version control service that makes it easy for teams to host secure and highly scalable Git repositories. Here are some key features and aspects of AWS CodeCommit. In this project, AWS CodeCommit was used to host the java applcation source control. This service offers a seamless integration with other AWS resources, which helps increase the speed and frequency of software development cycle.
 
